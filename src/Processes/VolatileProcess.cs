@@ -3,8 +3,8 @@
 /// Authors: Multiple.
 /// Copyright: Garry Sotnik
 
-using System;
 using SOSIEL.Enums;
+using SOSIEL.Exceptions;
 
 namespace SOSIEL.Processes
 {
@@ -15,32 +15,32 @@ namespace SOSIEL.Processes
         protected abstract void Minimize();
         protected abstract void MaintainAtValue();
 
-        protected void SpecificLogic(string tendency)
+        protected void SpecificLogic(GoalType goalType)
         {
-            switch (tendency)
+            switch (goalType)
             {
-                case GoalTendency.EqualToOrAboveFocalValue:
+                case GoalType.EqualToOrAboveFocalValue:
                     {
                         EqualToOrAboveFocalValue();
                         break;
                     }
-               case GoalTendency.Maximize:
+               case GoalType.Maximize:
                     {
                         Maximize();
                         break;
                     }
-                case GoalTendency.Minimize:
+                case GoalType.Minimize:
                     {
                         Minimize();
                         break;
                     }
-                case GoalTendency.MaintainAtValue:
+                case GoalType.MaintainAtValue:
                     {
                         MaintainAtValue();
                         break;
                     }
                 default:
-                    throw new Exception("Unknown managing of goal");
+                    throw new SosielAlgorithmException("Unknown managing of goal");
             }
         }
     }

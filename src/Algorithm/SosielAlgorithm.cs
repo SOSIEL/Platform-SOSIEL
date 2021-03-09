@@ -28,7 +28,7 @@ namespace SOSIEL.Algorithm
         protected Probabilities probabilities = new Probabilities();
 
         //processes
-        protected GoalPrioritizing gp = new GoalPrioritizing();
+        protected IGoalPrioritizing gp;
         protected GoalSelecting gs = new GoalSelecting();
         protected AnticipatoryLearning<TDataSet> al = new AnticipatoryLearning<TDataSet>();
         protected CounterfactualThinking<TDataSet> ct = new CounterfactualThinking<TDataSet>();
@@ -39,13 +39,17 @@ namespace SOSIEL.Algorithm
 
         protected Demographic<TDataSet> demographic;
 
-
-        public SosielAlgorithm(int numberOfIterations, ProcessesConfiguration processConfiguration)
+        public SosielAlgorithm(int numberOfIterations, ProcessesConfiguration processConfiguration, IGoalPrioritizing goalPrioritizing)
         {
             this.numberOfIterations = numberOfIterations;
             this.processConfiguration = processConfiguration;
-
+            gp = goalPrioritizing != null ? goalPrioritizing : new DefaultGoalPrioritizing();
             iterationCounter = 0;
+        }
+
+        public SosielAlgorithm(int numberOfIterations, ProcessesConfiguration processConfiguration)
+            : this(numberOfIterations, processConfiguration, null)
+        {
         }
 
         /// <summary>

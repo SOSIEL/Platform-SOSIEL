@@ -9,7 +9,7 @@ namespace SOSIEL.Randoms
 {
     public class NormalDistributionRandom
     {
-        private static NormalDistributionRandom random;
+        private static readonly NormalDistributionRandom random = new NormalDistributionRandom(0.3, 0.3);
 
         double _mean;
         double _stdDev;
@@ -29,7 +29,6 @@ namespace SOSIEL.Randoms
 
             double randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2);
 
-
             return mean + stdDev * randStdNormal;
         }
 
@@ -37,9 +36,6 @@ namespace SOSIEL.Randoms
         {
             get
             {
-                if (random == null)
-                    random = new NormalDistributionRandom(0.3, 0.3);
-
                 return random;
             }
         }

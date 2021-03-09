@@ -129,7 +129,7 @@ namespace SOSIEL.Processes
 
             matchedDecisionOptions = matched;
 
-            SpecificLogic(selectedGoal.Tendency);
+            SpecificLogic(selectedGoal.Type);
 
 
             return selectedGoalState.Confidence;

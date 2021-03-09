@@ -274,7 +274,7 @@ namespace SOSIEL.Entities
 
         public override int GetHashCode()
         {
-            return 0;
+            return Id.GetHashCode();
         }
 
         public static bool operator ==(Agent a, Agent b)
@@ -297,7 +297,5 @@ namespace SOSIEL.Entities
         {
             return !(a == b);
         }
-
-
     }
 }

@@ -9,7 +9,7 @@ namespace SOSIEL.Randoms
 {
     public class PowerLawRandom
     {
-        private static PowerLawRandom random;
+        private static readonly PowerLawRandom random = new PowerLawRandom(3);
 
         double power;
 
@@ -26,9 +26,6 @@ namespace SOSIEL.Randoms
         {
             get
             {
-                if (random == null)
-                    random = new PowerLawRandom(3);
-
                 return random;
             }
         }

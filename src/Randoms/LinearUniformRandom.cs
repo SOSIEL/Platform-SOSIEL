@@ -9,7 +9,7 @@ namespace SOSIEL.Randoms
 {
     public sealed class LinearUniformRandom
     {
-        private static Random random = new Random();
+        private static readonly Random random = new Random();
 
         public static Random GetInstance
         {

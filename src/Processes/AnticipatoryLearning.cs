@@ -166,7 +166,7 @@ namespace SOSIEL.Processes
                     agent.AnticipationInfluence[r][goal] = anticipatedInfluence;
                 });
 
-                SpecificLogic(goal.Tendency);
+                SpecificLogic(goal.Type);
             }
 
             //return SortByImportance(agent, currentIterationAgentState.GoalsState).ToArray();

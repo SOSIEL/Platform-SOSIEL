@@ -176,7 +176,7 @@ namespace SOSIEL.Processes
                 //set anticipated influence before execute specific logic
                 anticipatedInfluence = agent.AnticipationInfluence;
 
-                SpecificLogic(processedGoal.Tendency);
+                SpecificLogic(processedGoal.Type);
             }
             else
                 decisionOptionForActivating = matchedDecisionOptions[0];

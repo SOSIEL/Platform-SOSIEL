@@ -29,12 +29,12 @@ namespace SOSIEL.Helpers
     /// </summary>
     public static class CSVHelper
     {
-        private static CsvHelper.Configuration.Configuration configuration;
+        private static CsvHelper.Configuration.CsvConfiguration configuration;
 
         static CSVHelper()
         {
-            configuration = new CsvHelper.Configuration.Configuration() { CultureInfo = CultureInfo.InvariantCulture, HasHeaderRecord = false };
-
+            configuration = new CsvHelper.Configuration.CsvConfiguration(CultureInfo.InvariantCulture);
+            configuration.HasHeaderRecord = false;
             configuration.TypeConverterCache.AddConverter<string[]>(new EnumerableConverter<string>());
         }
 

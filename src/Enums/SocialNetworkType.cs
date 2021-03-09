@@ -12,6 +12,5 @@ namespace SOSIEL.Enums
         SN2,
         SN3,
         CommonPool
-
     }
 }

@@ -5,13 +5,17 @@
 
 ﻿using System;
 
+using SOSIEL.Enums;
+
 namespace SOSIEL.Entities
 {
-    public class Goal:IEquatable<Goal>
+    public class Goal: IEquatable<Goal>
     {
+        public int Index { get; set; }
+
         public string Name { get; set; }
 
-        public string Tendency { get; set; }
+        public GoalType Type { get; set; }
 
         public string ReferenceVariable { get; set; }
 
@@ -27,7 +31,9 @@ namespace SOSIEL.Entities
 
         public bool IsCumulative { get; set; }
 
-
+        /// <summary>
+        /// Initializes a new instance of the Goal class.
+        /// </summary>
         public Goal()
         {
             RankingEnabled = true;
@@ -52,8 +58,8 @@ namespace SOSIEL.Entities
 
         public override int GetHashCode()
         {
-            //turn off checking by hash code
-            return 0;
+            // Hash code MUST be implemented, because we use goal as key to Dictionary.
+            return Name.GetHashCode();
         }
 
         public static bool operator ==(Goal a, Goal b)
